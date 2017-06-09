@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">StudyClock</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_add_plan">添加计划</string>
+    <string name="action_tx">我的信息</string>
+
+
+</resources>

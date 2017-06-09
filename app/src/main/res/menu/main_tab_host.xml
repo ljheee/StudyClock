@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cn.teachcourse.www.MainTabHostActivity" >
+
+
+    <item
+        android:id="@+id/touxiang"
+        android:orderInCategory="1"
+        android:title="@string/action_tx"
+        android:icon="@mipmap/ic_tx"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_add_plan"
+        android:orderInCategory="100"
+        android:title="@string/action_add_plan"
+        android:icon="@mipmap/ic_add_plan"
+        app:showAsAction="always"/>
+
+</menu>

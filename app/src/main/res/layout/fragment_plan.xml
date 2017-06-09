@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我的学习计划"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/today_integral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="当日积分:"
+        android:gravity="left"/>
+
+    <ListView
+        android:id="@+id/listview_plan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
