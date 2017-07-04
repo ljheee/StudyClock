@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ljheee.studyclock.R;
-import com.ljheee.studyclock.bean.Plan;
+import com.ljheee.studyclock.bean.SinglePlan;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ public class PlanAdapter extends BaseAdapter {
 //    File[] files;
 
     // 或者列表（对象）
-    ArrayList<Plan> fileList;
+    ArrayList<SinglePlan> fileList;
 
 
     // 加载、解析 XML（系统服务 XmlPullParser xpp）
@@ -42,7 +42,7 @@ public class PlanAdapter extends BaseAdapter {
      * @param context   上下文
      * @param fileList     数据
      */
-    public PlanAdapter(Context context,  ArrayList<Plan> fileList) {
+    public PlanAdapter(Context context, ArrayList<SinglePlan> fileList) {
         this.context = context;
         this.fileList = fileList;
 
@@ -72,7 +72,7 @@ public class PlanAdapter extends BaseAdapter {
      * @return
      */
     @Override
-    public Plan getItem(int i) {
+    public SinglePlan getItem(int i) {
         return fileList.get(i);
     }
 
@@ -151,14 +151,14 @@ public class PlanAdapter extends BaseAdapter {
         }
 
 
-        public void bindData(Plan plan) {
+        public void bindData(SinglePlan plan) {
 //            icon.setImageResource(
 //                    file.isDirectory()
 //                            ? R.drawable.ic_folder
 //                            : R.drawable.ic_more_vert_black_24dp);
             icon.setImageResource(R.mipmap.ic_plan);
 
-            title.setText(plan.getName());
+            title.setText(plan.getPlanName());
         }
     }
 

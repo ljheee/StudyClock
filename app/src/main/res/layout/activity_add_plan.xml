@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:hint="planName"
         android:ems="10"
         android:layout_marginStart="18dp"
         android:layout_alignBaseline="@+id/textView1"
@@ -70,18 +70,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="time"
-        android:ems="10"
+        android:hint="startTime"
+        android:ems="18"
         android:id="@+id/editText2"
         android:layout_alignBaseline="@+id/textView2"
         android:layout_alignBottom="@+id/textView2"
         android:layout_alignStart="@+id/editText" />
-
-    <TimePicker
-        android:layout_width="300px"
-        android:layout_height="200px"
-        android:id="@+id/timePicker"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/backBtn"
@@ -101,6 +95,24 @@
         android:layout_alignBaseline="@+id/backBtn"
         android:layout_alignBottom="@+id/backBtn"
         android:layout_toEndOf="@+id/textView1" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="endTime"
+        android:ems="10"
+        android:layout_below="@+id/editText2"
+        android:layout_alignStart="@+id/editText2"
+        android:layout_marginTop="12dp"
+        android:id="@+id/editText3" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView4"
+        android:layout_alignStart="@+id/editText3"
+        android:id="@+id/spinner" />
 
 
 </RelativeLayout>

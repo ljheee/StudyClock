@@ -18,7 +18,7 @@ import com.ljheee.studyclock.AddPlanActivity;
 import com.ljheee.studyclock.MyInfoActivity;
 import com.ljheee.studyclock.R;
 import com.ljheee.studyclock.adapter.PlanAdapter;
-import com.ljheee.studyclock.bean.Plan;
+import com.ljheee.studyclock.bean.SinglePlan;
 
 import java.util.ArrayList;
 
@@ -28,7 +28,7 @@ public class PlanFragment extends Fragment {
     TextView todayIntegral;
     ListView todayPlans;
 
-    public static ArrayList<Plan> planList;
+    public static ArrayList<SinglePlan> planList;
     PlanAdapter adapter;
 
     public PlanFragment(){
@@ -49,7 +49,7 @@ public class PlanFragment extends Fragment {
         todayPlans = (ListView) v.findViewById(R.id.listview_plan);
 
         initPlans();
-        adapter = new PlanAdapter(getContext(),planList);
+        adapter = new PlanAdapter(getContext(), planList);
         todayPlans.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         return v;
@@ -61,9 +61,7 @@ public class PlanFragment extends Fragment {
     private void initPlans() {
 
         planList = new ArrayList<>();
-        planList.add(new Plan());
-        planList.add(new Plan("ACM讨论"));
-        planList.add(new Plan("English"));
+        planList.add(new SinglePlan("ljh","ACM讨论","2017-06","2017-07","com.ljheee.study"));
     }
 
 
@@ -91,5 +89,10 @@ public class PlanFragment extends Fragment {
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

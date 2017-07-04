@@ -1,5 +1,7 @@
 package com.ljheee.studyclock;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTabHost;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.ljheee.studyclock.bean.SinglePlan;
 import com.ljheee.studyclock.fragment.CommunityFragment;
 import com.ljheee.studyclock.fragment.PlanFragment;
 import com.ljheee.studyclock.fragment.PlayFragment;
@@ -31,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     private int mImageViewArray[] = { R.drawable.news_main_btn,
             R.drawable.community_main_btn, R.drawable.goverment_main_btn,
             R.drawable.search_main_btn };
+
+
+    public static final int ADDR_CODE = 0;
+    public static final int ReslutActivity_CODE = 1;
+    SinglePlan plan;
+
 
     // Tab选项卡的文字
     private String mTextviewArray[] = { "学习计划", "学习社区", "学习玩法", "搜索" };
@@ -81,25 +90,24 @@ public class MainActivity extends AppCompatActivity {
         return view;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        switch (requestCode) {
+            case ADDR_CODE:
+                if(resultCode == Activity.RESULT_OK){
+                    Bundle data = intent.getExtras();
+                    plan = (SinglePlan)data.getSerializable("plan");
+
+                }
+                break;
+
+            default:
+                break;
+        }
+
+    }
 
 
-    //MainActivity去除 ActionBar
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main_tab_host, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
 }
