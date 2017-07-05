@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.ljheee.studyclock.bean.SinglePlan;
 import com.ljheee.studyclock.fragment.CommunityFragment;
-import com.ljheee.studyclock.fragment.PlanFragment;
 import com.ljheee.studyclock.fragment.PlayFragment;
 import com.ljheee.studyclock.fragment.SearchFragment;
 
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private LayoutInflater layoutInflater;
 
     // 定义数组来存放Fragment界面
-    private Class fragmentArray[] = { PlanFragment.class,
+    private Class fragmentArray[] = { PlanActivity.class,
             CommunityFragment.class, PlayFragment.class,
             SearchFragment.class };
 

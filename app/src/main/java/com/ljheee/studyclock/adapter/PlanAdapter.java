@@ -2,11 +2,13 @@ package com.ljheee.studyclock.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.ljheee.studyclock.R;
@@ -22,7 +24,7 @@ public class PlanAdapter extends BaseAdapter {
     /**
      * 上下文
      */
-    Context context;
+    static Context context;
 
     /**
      * 数据
@@ -157,8 +159,26 @@ public class PlanAdapter extends BaseAdapter {
 //                            ? R.drawable.ic_folder
 //                            : R.drawable.ic_more_vert_black_24dp);
             icon.setImageResource(R.mipmap.ic_plan);
-
             title.setText(plan.getPlanName());
+            info.setText("开始时间:"+plan.getStartTime());
+            action.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PopupMenu menu = new PopupMenu(context, v);
+                    // 加载菜单文件
+                    menu.inflate(R.menu.menu_popup);
+
+                    // 添加菜单项点击监听器
+                    menu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            return true;
+                        }
+                    });
+                    menu.show();
+
+                }
+            });
         }
     }
 

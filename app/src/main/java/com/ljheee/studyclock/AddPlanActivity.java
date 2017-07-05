@@ -70,7 +70,6 @@ public class AddPlanActivity extends AppCompatActivity {
 
         asyTask = new AsyTask();
         asyTask.execute();
-        Log.e("AddPlan=onCreate","asyTask.execute");
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -102,7 +101,6 @@ public class AddPlanActivity extends AppCompatActivity {
                 end = endTime.getText().toString();
 
                 SinglePlan plan = new SinglePlan(uid,name,start,end,appPkg);
-//                getFragmentManager().findFragmentById(R.id.);
 
                 Intent intent = getIntent();
                 Bundle data = new Bundle();

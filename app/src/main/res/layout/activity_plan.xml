@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.ljheee.studyclock.PlanActivity">
+    <!--android:id="@+id/activity_plan"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我的学习计划"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/today_integral"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="当日积分:75"
+        android:gravity="left"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <ListView
+        android:id="@+id/listview_plan"
+        android:layout_width="match_parent"
+        android:layout_weight="8.5"
+        android:layout_height="0dp" />
+
+
+        <!--底部 4个导航-->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_weight="1.5"
+        android:layout_height="0dp"
+        android:background="@android:color/holo_blue_light"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal">
+    </LinearLayout>
+
+    </LinearLayout>
+    </LinearLayout>
+
+    <!-- 左侧抽屉 -->
+    <!--layout_gravity: 定义抽屉的位置（start 左侧，end 右侧）-->
+    <include
+        layout="@layout/drawer_left"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" />
+
+</android.support.v4.widget.DrawerLayout>
