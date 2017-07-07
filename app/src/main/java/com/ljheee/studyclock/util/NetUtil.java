@@ -25,11 +25,16 @@ public class NetUtil {
      */
     public static void login(RequestParams params,
                              AsyncHttpResponseHandler handler){
-        String url = "http://172.22.88.168:8080/OurStudy/loginServlet";
+        String url = "http://172.22.88.160:8080/OurStudy/loginServlet";
         mClient.post(url , params , handler);
     }
 
 
+    public static void register(RequestParams params,
+                             AsyncHttpResponseHandler handler){
+        String url = "http://172.22.88.160:8080/OurStudy/registerServlet";
+        mClient.post(url , params , handler);
+    }
 
 
 

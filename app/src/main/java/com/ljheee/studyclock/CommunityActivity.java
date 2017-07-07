@@ -2,6 +2,7 @@ package com.ljheee.studyclock;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 public class CommunityActivity extends AppCompatActivity {
@@ -33,6 +35,11 @@ public class CommunityActivity extends AppCompatActivity {
     // Tab选项卡的文字
     private String mTextviewArray[] = { "待办", "社区", "排行榜", "学习玩法" };
 
+
+
+    private SearchView searchView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +48,12 @@ public class CommunityActivity extends AppCompatActivity {
         linearLayout = (LinearLayout) findViewById(R.id.linearLayoutCommunity);
         linearLayout.setWeightSum(4.0f);
 
+
+        searchView = (SearchView) findViewById(R.id.search_view);
+        searchView.setIconifiedByDefault(true);
+        searchView.setSubmitButtonEnabled(true);
+        searchView.onActionViewExpanded();
+        searchView.setBackgroundColor(Color.parseColor("#F2F2F2"));
         initView();
 
     }

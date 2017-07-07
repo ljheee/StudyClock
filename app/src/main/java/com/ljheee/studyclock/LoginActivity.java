@@ -50,8 +50,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
-    String uid;
-    String password;
+    public static String curUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,7 +157,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
-        String email = mEmailView.getText().toString();
+        final String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
 
@@ -202,14 +201,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     String s = new String(responseBody);
                     if("ok".equals(s)){
                         showProgress(false);
-                        Log.e("onSuccess------" , "onSuccess");
+                        Log.e("login------" , "onSuccess");
+                        LoginActivity.curUid = email;
                         finish();
                     }
                 }
 
                 @Override
                 public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody, Throwable error) {
-                    Log.e("onFailure------" , "onFailure");
+                    Log.e("login------" , "onFailure");
                     showProgress(false);
                     mPasswordView.setError(getString(R.string.error_incorrect_password));
                     mPasswordView.requestFocus();
