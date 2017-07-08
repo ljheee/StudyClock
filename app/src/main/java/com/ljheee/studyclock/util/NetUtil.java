@@ -36,6 +36,55 @@ public class NetUtil {
         mClient.post(url , params , handler);
     }
 
+    public static void addPlan(RequestParams params,
+                             AsyncHttpResponseHandler handler){
+        String url = "http://172.22.88.160:8080/OurStudy/addPlanServlet";
+        mClient.post(url , params , handler);
+    }
+
+    public static void getRankList(RequestParams params,
+                             AsyncHttpResponseHandler handler){
+        String url = "http://172.22.88.160:8080/OurStudy/rankServlet";
+        mClient.post(url , params , handler);
+    }
+
+    public static void pubQuestion(RequestParams params,
+                             AsyncHttpResponseHandler handler){
+        String url = "http://172.22.88.160:8080/OurStudy/pubQueServlet";
+        mClient.post(url , params , handler);
+    }
+
+    public static void getQuesList(RequestParams params,
+                             AsyncHttpResponseHandler handler){
+        String url = "http://172.22.88.160:8080/OurStudy/getQuesListServlet";
+        mClient.post(url , params , handler);
+    }
+
+    public static void getAppList(RequestParams params,
+                             AsyncHttpResponseHandler handler){
+        String url = "http://172.22.88.160:8080/OurStudy/getAppRankServlet";
+        mClient.post(url , params , handler);
+    }
+
+    public static void getQuesDetail(RequestParams params,
+                             AsyncHttpResponseHandler handler){
+        String url = "http://172.22.88.160:8080/OurStudy/getQuesDetailServlet";
+        mClient.post(url , params , handler);
+    }
+
+    public static void doDianZan(RequestParams params,
+                             AsyncHttpResponseHandler handler){
+        String url = "http://172.22.88.160:8080/OurStudy/dianZanServlet";
+        mClient.post(url , params , handler);
+    }
+    public static void reply(RequestParams params,
+                             AsyncHttpResponseHandler handler){
+        String url = "http://172.22.88.160:8080/OurStudy/replyQuesServlet";
+        mClient.post(url , params , handler);
+    }
+
+
+
 
 
 

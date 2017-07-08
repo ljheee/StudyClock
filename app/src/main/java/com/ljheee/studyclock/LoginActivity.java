@@ -4,9 +4,11 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.LoaderManager.LoaderCallbacks;
+import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -35,6 +37,8 @@ import com.loopj.android.http.RequestParams;
 import java.util.ArrayList;
 import java.util.List;
 
+import cz.msebera.android.httpclient.Header;
+
 import static android.Manifest.permission.READ_CONTACTS;
 
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
@@ -50,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
-    public static String curUid;
+    public volatile static String curUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,18 +201,20 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             NetUtil.login(param , new AsyncHttpResponseHandler() {
 
                 @Override
-                public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody) {
+                public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     String s = new String(responseBody);
                     if("ok".equals(s)){
                         showProgress(false);
-                        Log.e("login------" , "onSuccess");
-                        LoginActivity.curUid = email;
+                        SharedPreferences sharedPreferences = getSharedPreferences("ljheee", Context.MODE_PRIVATE); //私有数据
+                        SharedPreferences.Editor editor = sharedPreferences.edit();//获取编辑器
+                        editor.putString("loginUID", email);
+                        editor.commit();//提交修改
                         finish();
                     }
                 }
 
                 @Override
-                public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody, Throwable error) {
+                public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                     Log.e("login------" , "onFailure");
                     showProgress(false);
                     mPasswordView.setError(getString(R.string.error_incorrect_password));

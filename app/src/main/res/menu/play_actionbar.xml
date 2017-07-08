@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="cn.teachcourse.www.MainTabHostActivity" >
+
+
+
+    <item
+        android:id="@+id/action_show_type"
+        android:orderInCategory="100"
+        android:title="分类"
+        app:showAsAction="always"/>
+
+</menu>

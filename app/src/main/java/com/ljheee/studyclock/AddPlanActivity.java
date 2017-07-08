@@ -1,7 +1,9 @@
 package com.ljheee.studyclock;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,6 +24,9 @@ import android.widget.Toast;
 import com.ljheee.studyclock.bean.MyAppInfo;
 import com.ljheee.studyclock.bean.SinglePlan;
 import com.ljheee.studyclock.util.ApkTool;
+import com.ljheee.studyclock.util.NetUtil;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +101,8 @@ public class AddPlanActivity extends AppCompatActivity {
         okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences sp = getSharedPreferences("ljheee", Context.MODE_PRIVATE);
+                uid = sp.getString("loginUID","");//如果取不到值就取后面的""
                 name = planName.getText().toString();
                 start = startTime.getText().toString();
                 end = endTime.getText().toString();
@@ -108,6 +115,29 @@ public class AddPlanActivity extends AppCompatActivity {
                 intent.putExtras(data);
                 AddPlanActivity.this.setResult(Activity.RESULT_OK,intent);//设置返回码为Activity.RESULT_OK，返回intent
 
+                RequestParams param = new RequestParams();
+                param.put("uid", uid);
+                param.put("planName", name);
+                param.put("startTime", start);
+                param.put("endTime", end);
+                param.put("appPkg", appPkg);
+                NetUtil.addPlan(param , new AsyncHttpResponseHandler() {
+
+                    @Override
+                    public void onSuccess(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody) {
+                        String s = new String(responseBody);
+                        if("ok".equals(s)){
+                            Log.e("addPlan------" , "onSuccess");
+                            LoginActivity.curUid = uid;
+                            AddPlanActivity.this.finish();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody, Throwable error) {
+                        Log.e("addPlan------" , "onFailure");
+                    }
+                });
                 //本Activity结束，退出该Activity
                 AddPlanActivity.this.finish();
             }

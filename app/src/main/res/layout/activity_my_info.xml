@@ -12,11 +12,18 @@
 
     <TextView
         android:text="个人信息"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="uid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView5"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="63dp"
-        android:id="@+id/textView5" />
+        android:id="@+id/textView_uid" />
 </RelativeLayout>

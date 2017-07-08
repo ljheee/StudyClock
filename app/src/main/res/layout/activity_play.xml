@@ -10,7 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.ljheee.studyclock.CommunityActivity">
 
-
     <!--底部 4个导航-->
     <LinearLayout
         android:id="@+id/linearLayoutPlay"
@@ -25,12 +24,30 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/study_play"
         android:text="学习玩法"
-        android:layout_width="wrap_content"
+        android:textColor="@android:color/black"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="63dp"
-        />
+        android:layout_alignParentStart="true" />
+
+    <com.youth.banner.Banner
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="120dp" />
+
+    <ListView
+        android:id="@+id/listView_applist"
+        android:layout_below="@id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    </ListView>
+
+
 </RelativeLayout>

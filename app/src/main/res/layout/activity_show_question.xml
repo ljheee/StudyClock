@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_show_question"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.ljheee.studyclock.ShowQuestionActivity">
+
+    <TextView
+        android:text="问题摘要"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/show_ques_title" />
+
+    <TextView
+        android:text="问题详情"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/show_ques_title"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="16dp"
+        android:id="@+id/show_ques_detail" />
+
+    <Button
+        android:text="我来回答"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="48dp"
+        android:id="@+id/button_i_reply" />
+
+    <Button
+        android:text="返回"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@id/button_i_reply"
+        android:layout_marginStart="60dp"
+        android:id="@+id/button_i_back" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="200"
+        android:hint="reply"
+        android:layout_above="@+id/button_i_reply"
+        android:layout_marginBottom="29dp"
+        android:id="@+id/intput_reply"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:id="@+id/listView_reply"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/show_ques_detail"
+        android:layout_above="@id/intput_reply"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>
