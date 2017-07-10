@@ -75,8 +75,6 @@ public class ShowQuestionActivity extends AppCompatActivity {
                 textViewDetail.setText("问题详情："+qd.getDetail());
                 comms = qd.getComments();
                 adapter.setData(comms);
-
-
             }
 
             @Override
@@ -106,6 +104,7 @@ public class ShowQuestionActivity extends AppCompatActivity {
                         String s = new String(responseBody);
                         if("ok".equals(s)){
                             Toast.makeText(ShowQuestionActivity.this ,"已回复" ,Toast.LENGTH_SHORT).show();
+                            editText.setText("");
                         }
 
 
