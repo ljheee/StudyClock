@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-
     <!-- if you want to load images from a file OR from the internet -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -53,7 +52,12 @@
         <activity
             android:name=".AddQuestionActivity"
             android:launchMode="singleInstance" />
-        <activity android:name=".ShowQuestionActivity"></activity>
+        <activity android:name=".ShowQuestionActivity" />
+
+        <service
+            android:name=".AppService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

@@ -112,6 +112,10 @@ public class PlanActivity extends AppCompatActivity {
         // 设置监听器
         drawerLayout.setDrawerListener(toggle);
         initLeftDrawer();
+
+        //开启服务
+        Intent startService = new Intent(this, AppService.class);
+        startService(startService);
     }
     /**
      * 构造：左侧抽屉

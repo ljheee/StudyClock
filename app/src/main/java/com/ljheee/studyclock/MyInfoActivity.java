@@ -38,7 +38,6 @@ public class MyInfoActivity extends AppCompatActivity {
 
 
         textViewUid.setText("uid="+curUID);
-
     }
 
 

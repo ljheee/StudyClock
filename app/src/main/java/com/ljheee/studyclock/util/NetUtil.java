@@ -83,6 +83,13 @@ public class NetUtil {
         mClient.post(url , params , handler);
     }
 
+    public static void getTodayPlans(RequestParams params,
+                             AsyncHttpResponseHandler handler){
+        String url = "http://172.22.88.160:8080/OurStudy/getTodayPlansServlet";
+        mClient.post(url , params , handler);
+    }
+
+
 
 
 
