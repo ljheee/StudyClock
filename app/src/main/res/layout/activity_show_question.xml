@@ -8,6 +8,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context="com.ljheee.studyclock.ShowQuestionActivity">
 
     <TextView
@@ -50,7 +52,7 @@
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:ems="200"
-        android:hint="reply"
+        android:hint="我来回答"
         android:layout_above="@+id/button_i_reply"
         android:layout_marginBottom="29dp"
         android:id="@+id/intput_reply"

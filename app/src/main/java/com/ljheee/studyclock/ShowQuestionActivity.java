@@ -52,6 +52,8 @@ public class ShowQuestionActivity extends AppCompatActivity {
         textViewTitle = (TextView) findViewById(R.id.show_ques_title);
         textViewDetail = (TextView) findViewById(R.id.show_ques_detail);
         editText = (EditText) findViewById(R.id.intput_reply);
+        editText.clearFocus();
+        editText.setFocusable(false);
 
         ireply = (Button) findViewById(R.id.button_i_reply);
         backButton = (Button) findViewById(R.id.button_i_back);
@@ -79,7 +81,12 @@ public class ShowQuestionActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody, Throwable error) {
-                Log.e("getAppList------" , "onFailure");
+                Log.e("getQuesDetail------" , "onFailure");
+                textViewTitle.setText("问题摘要：Java SE问题？");
+                textViewDetail.setText("问题详情：Java中，构造方法是否能继承？");
+                comms = new ArrayList<Comment>();
+                comms.add(new Comment(99,"ljh","Java中，构造方法不能继承的，你可以在JVM测试一下。",0,"2017-07-13 16:58:23"));
+                adapter.setData(comms);
             }
         });
 
@@ -106,17 +113,13 @@ public class ShowQuestionActivity extends AppCompatActivity {
                             Toast.makeText(ShowQuestionActivity.this ,"已回复" ,Toast.LENGTH_SHORT).show();
                             editText.setText("");
                         }
-
-
                     }
 
                     @Override
                     public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody, Throwable error) {
-                        Log.e("getAppList------" , "onFailure");
+                        Log.e("reply------" , "onFailure");
                     }
                 });
-
-                Toast.makeText(ShowQuestionActivity.this ,"回复成功" ,Toast.LENGTH_SHORT).show();
             }
         });
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -125,8 +128,6 @@ public class ShowQuestionActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
     }
 
 
@@ -176,15 +177,15 @@ public class ShowQuestionActivity extends AppCompatActivity {
                 mViewHolder.replyUid = (TextView) convertView.findViewById(R.id.reply_uid);
                 mViewHolder.replyTime = (TextView) convertView.findViewById(R.id.reply_time);
                 mViewHolder.replyContent = (TextView) convertView.findViewById(R.id.reply_content);
-                mViewHolder.zanButton = (Button)findViewById(R.id.button_zan);
+                mViewHolder.zanButton = (Button)convertView.findViewById(R.id.button_zan);
 
                 convertView.setTag(mViewHolder);
             } else {
                 mViewHolder = (ViewHolder) convertView.getTag();
             }
 
-            mViewHolder.replyUid.setText(comm.getUid());
-            mViewHolder.replyTime.setText(comm.getAddTime());
+            mViewHolder.replyUid.setText("回答人:"+comm.getUid());
+            mViewHolder.replyTime.setText("回答时间:"+comm.getAddTime());
             mViewHolder.replyContent.setText(comm.getContent());
             mViewHolder.zanButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -203,7 +204,7 @@ public class ShowQuestionActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody, Throwable error) {
-                            Log.e("getAppList------" , "onFailure");
+                            Log.e("doDianZan------" , "onFailure");
                         }
                     });
                 }

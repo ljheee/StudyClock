@@ -99,7 +99,7 @@ public class PlayActivity extends AppCompatActivity {
                 XStream xStream = new XStream();
                 List<App> listt = (List<App>) xStream.fromXML(s);
                 for (int i=0;i<listt.size();i++) {
-                    dataList.add(listt.get(i).getAppPkg()+"---排名:"+(i+1));
+                    dataList.add(listt.get(i).getAppName()+"---排名:"+(i+1));
                 }
                 adapter.notifyDataSetChanged();
             }

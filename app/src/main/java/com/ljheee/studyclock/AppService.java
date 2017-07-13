@@ -51,7 +51,7 @@ public class AppService extends Service {
         builder2.setContentIntent(contentIntent);
         builder2.setSmallIcon(R.mipmap.ic_launcher);
         builder2.setTicker("Foreground Service Start");
-        builder2.setContentTitle("Title"+System.currentTimeMillis());
+        builder2.setContentTitle(sdf.format(new Date()));
         builder2.setContentText("Welcome to 汇学App");
         Notification notification = builder2.build();
 
@@ -63,7 +63,8 @@ public class AppService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
 
-        new NetThread().start();
+//        new NetThread().start();
+        getTodayPlans();
         new NotifyThread().start();
 
         return START_STICKY;
@@ -71,6 +72,7 @@ public class AppService extends Service {
 
     /**
      * 获取数据库，uid 用户的今日计划
+     * 不能在 子线程中执行
      */
     private void getTodayPlans(){
         SharedPreferences sp = getSharedPreferences("ljheee", Context.MODE_PRIVATE);

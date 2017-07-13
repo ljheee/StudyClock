@@ -69,6 +69,7 @@ public class CommunityActivity extends AppCompatActivity {
         searchView.setIconifiedByDefault(true);
         searchView.setSubmitButtonEnabled(true);
         searchView.onActionViewExpanded();
+        searchView.setFocusable(false);
         searchView.setBackgroundColor(Color.parseColor("#F2F2F2"));
         initView();
 
@@ -94,7 +95,7 @@ public class CommunityActivity extends AppCompatActivity {
             public void onFailure(int statusCode, cz.msebera.android.httpclient.Header[] headers, byte[] responseBody, Throwable error) {
                 Log.e("getQuesList------" , "onFailure");
                 dataList = new ArrayList<QuestionRecord>();
-                dataList.add(new QuestionRecord());
+                dataList.add(new QuestionRecord("testUID",0,"Java SE问题？","Java中，构造方法是否能继承？"));
                 adapter.setData(dataList);
             }
         });
